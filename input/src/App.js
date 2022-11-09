@@ -57,7 +57,7 @@ export default function App() {
     if (quill) {
       quill.on('text-change', (delta, oldDelta, source) => {
         const html = (quill.root.innerHTML); // Get innerHTML using quill
-        window.postMessage({target: "ArgoPlus-Updated", html: html}, "*"); // Send html to main process
+        window.top.postMessage({target: "ArgoPlus-Updated", html: html}, "*"); // Send html to main process
       });
     }
   }, [quill]);
