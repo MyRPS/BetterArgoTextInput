@@ -7,12 +7,12 @@ import 'quill/dist/quill.snow.css'; // Add css for snow theme
 // or import 'quill/dist/quill.bubble.css'; // Add css for bubble theme
 
 var toolbarOptions = [
-  [{ font: [] }],
-  [{ size: ['small', false, 'large', 'huge'] }],
+
+  ["bold", "italic", "underline", "strike"], 
 
   [],
 
-  ["bold", "italic", "underline", "strike"], 
+  [{ header: 1 }, { header: 2 }],
 
   [],
 
@@ -20,11 +20,12 @@ var toolbarOptions = [
 
   [],
 
-  [{ script: "sub" }, { script: "super" }], // superscript/subscript
+  // [{ script: "sub" }, { script: "super" }],
 
-  [],
+  // [],
 
-  [{ header: 1 }, { header: 2 }, "blockquote", "code-block"],
+  // [{ header: 1 }, { header: 2 }],
+  // ["blockquote", "code-block"],
 
   [],
 
