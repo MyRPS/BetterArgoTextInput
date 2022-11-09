@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/BetterArgoTextInput/static/css/main.f1d3bde3.css",
-    "main.js": "/BetterArgoTextInput/static/js/main.b17394e2.js",
+    "main.js": "/BetterArgoTextInput/static/js/main.5394c6db.js",
     "static/js/787.47ffe113.chunk.js": "/BetterArgoTextInput/static/js/787.47ffe113.chunk.js",
     "index.html": "/BetterArgoTextInput/index.html",
     "main.f1d3bde3.css.map": "/BetterArgoTextInput/static/css/main.f1d3bde3.css.map",
-    "main.b17394e2.js.map": "/BetterArgoTextInput/static/js/main.b17394e2.js.map",
+    "main.5394c6db.js.map": "/BetterArgoTextInput/static/js/main.5394c6db.js.map",
     "787.47ffe113.chunk.js.map": "/BetterArgoTextInput/static/js/787.47ffe113.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f1d3bde3.css",
-    "static/js/main.b17394e2.js"
+    "static/js/main.5394c6db.js"
   ]
 }
