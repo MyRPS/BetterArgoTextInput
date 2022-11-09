@@ -75,7 +75,7 @@ export default function App() {
       }
       quill.root.innerHTML = event.data.html; 
     });
-  }, [])
+  }, [quill]);
 
   return (
     <div style={{ width: "100%", height: "100vh" }}>
