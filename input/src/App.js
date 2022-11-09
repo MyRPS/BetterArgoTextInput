@@ -63,7 +63,7 @@ export default function App() {
   }, [quill]);
 
   useEffect(() => {
-    window.onmessage = (event) => {
+    window.addEventListener("message", (event) => {
       //ignore messages from current script
       console.log(event.data)
       if (!event.data || event.data.target !== "ArgoPlus-Post") {
@@ -74,12 +74,12 @@ export default function App() {
         return;
       }
       quill.root.innerHTML = event.data.html; 
-    }
-  })
+    });
+  }, [])
 
   return (
-    <div style={{ width: "100%", height: "100%" }}>
-      <div ref={quillRef} />
+    <div style={{ width: "100%", height: "100vh" }}>
+      <div ref={quillRef} style={{ width: "100%", height: "100vh" }} />
     </div>
   );
 };
