@@ -57,7 +57,7 @@ export default function App() {
     if (quill) {
       quill.on('text-change', (delta, oldDelta, source) => {
         const html = (quill.root.innerHTML); // Get innerHTML using quill
-        window.postMessage({target: "ArgoPlus", html: html}, "*"); // Send html to main process
+        window.postMessage({target: "ArgoPlus-Updated", html: html}, "*"); // Send html to main process
       });
     }
   }, [quill]);
@@ -66,12 +66,14 @@ export default function App() {
     window.onmessage = (event) => {
       //ignore messages from current script
       console.log(event.data)
-      if (event.source === window) {
+      if (!event.data || event.data.target !== "ArgoPlus-Post") {
         return;
       }
-      if (event.data && event.data.target === "ArgoPlus") {
-        quill.root.innerHTML = event.data.html; // Set innerHTML using quill
+      if (event.source === window) {
+        quill.root.innerHTML = "<p>same org</p>" + event.data.html; // Set innerHTML using quill
+        return;
       }
+      quill.root.innerHTML = event.data.html; 
     }
   })
 
