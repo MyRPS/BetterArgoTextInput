@@ -20,6 +20,10 @@ var toolbarOptions = [
 
   [],
 
+  [{ script: "sub" }, { script: "super" }], // superscript/subscript
+
+  [],
+
   [{ header: 1 }, { header: 2 }, "blockquote", "code-block"],
 
   [],
@@ -28,15 +32,11 @@ var toolbarOptions = [
 
   [],
 
-  [{ script: "sub" }, { script: "super" }], // superscript/subscript
-
-  [],
-
   [{ align: [] }, { direction: "rtl" }], // text direction
 
   [],
 
-  ['link', 'image', 'video'],
+  ['link', 'image', 'video', 'formula'],
 
   [],[],[],
 
