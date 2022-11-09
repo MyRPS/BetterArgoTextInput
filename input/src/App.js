@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { useQuill } from 'react-quilljs';
 // or const { useQuill } = require('react-quilljs');
@@ -44,7 +44,7 @@ var toolbarOptions = [
 ];
 
 export default function App() {
-  const { quillRef } = useQuill({theme: "snow", modules: {toolbar: toolbarOptions}, formats: [
+  const { quill, quillRef } = useQuill({theme: "snow", modules: {toolbar: toolbarOptions}, formats: [
     'bold', 'italic', 'underline', 'strike',
     'align', 'list', 'indent',
     'size', 'header',
@@ -52,6 +52,28 @@ export default function App() {
     'color', 'background',
     'clean',
   ], placeholder: ""});
+
+  useEffect(() => {
+    if (quill) {
+      quill.on('text-change', (delta, oldDelta, source) => {
+        const html = (quill.root.innerHTML); // Get innerHTML using quill
+        window.postMessage({target: "ArgoPlus", html: html}, "*"); // Send html to main process
+      });
+    }
+  }, [quill]);
+
+  useEffect(() => {
+    window.onmessage = (event) => {
+      //ignore messages from current script
+      console.log(event.data)
+      if (event.source === window) {
+        return;
+      }
+      if (event.data && event.data.target === "ArgoPlus") {
+        quill.root.innerHTML = event.data.html; // Set innerHTML using quill
+      }
+    }
+  })
 
   return (
     <div style={{ width: "100%", height: "100%" }}>
