@@ -70,10 +70,10 @@ export default function App() {
         return;
       }
       if (event.source === window) {
-        quill.root.innerHTML = "<p>same org</p>" + event.data.html; // Set innerHTML using quill
+        quillRef.current.firstChild.innerHTML = "<p>same org</p>" + event.data.html; // Set innerHTML using quill
         return;
       }
-      quill.root.innerHTML = event.data.html; 
+      quillRef.current.firstChild.innerHTML = event.data.html; 
     });
   }, [quill]);
 
